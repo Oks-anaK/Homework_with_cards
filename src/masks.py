@@ -7,12 +7,6 @@ def mask_account_card(account_card: str) -> str:
     else:
         return f'Счет **{account_card[-4:]}'
 
-def get_date(_date: str) -> str:
-    """
-    Функция, принимает на вход строку с датой в формате "2024-03-11T02:26:18.671407"
-    и возвращает строку с датой в формате "ДД.ММ.ГГГГ"
-    """
-    return f'{_date[8:10]}.{_date[5:7]}.{_date[0:4]}'
 
 
 if __name__ == "__main__":
