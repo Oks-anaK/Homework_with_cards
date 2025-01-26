@@ -1,4 +1,19 @@
-from src.masks import mask_account_card
+from src.masks import get_mask_account, get_mask_card_number
+
+
+def mask_account_card(_data: str) -> str:
+    """
+    Функция переиспользует уже существующие функции маскировки из модуля masks
+    и возвращает строку с замаскированным номером
+    """
+    splitted_data = _data.split(" ")
+    digits_only = splitted_data[-1]
+    name_of_card_or_account = splitted_data[:-1]
+    if "Счет" in _data:
+        masked_digits_only = get_mask_account(digits_only)
+    else:
+        masked_digits_only = get_mask_card_number(digits_only)
+    return " ".join(name_of_card_or_account) + " " + masked_digits_only
 
 
 def get_date(_date: str) -> str:
