@@ -1,6 +1,3 @@
-from typing import Any, List
-
-
 def filter_by_state(transactions: list, state: str = "EXECUTED") -> list:
     """
     Функция, которая принимает список словарей и опционально значение

@@ -1,6 +1,3 @@
-from curses.ascii import isdigit
-
-
 def get_mask_card_number(number_card: str) -> str:
     """Функция маскирует номер банковской карты в виде: XXXX XX** **** XXXX"""
     if not isinstance(number_card, str):
