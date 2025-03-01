@@ -4,7 +4,7 @@ from typing import Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
-
+    """Автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки."""
 
     def log_messages(message: str):
         if not filename:
