@@ -74,3 +74,13 @@ def new_trans_list() -> list[dict]:
             "to": "Счет 14211924144426031657",
         },
     ]
+
+
+@pytest.fixture
+def convert_transaction_usd():
+    return {"id": 441945886, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}}
+
+
+@pytest.fixture
+def convert_transaction_rub():
+    return {"id": 441945886, "operationAmount": {"amount": "100", "currency": {"code": "RUB"}}}
