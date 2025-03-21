@@ -49,8 +49,6 @@ def test_convert_transaction_amount_to_rubles_no_key_in_dict():
 
 def test_convert_transaction_amount_to_rubles_typeerror():
     """Проверка на неправильный тип входных данных."""
-    transaction_no_dict = [
-        {"id": 441945886, "operationAmount": {"amount": "100", "currency": {"code": "RUB"}}}
-    ]
+    transaction_no_dict = [{"id": 441945886, "operationAmount": {"amount": "100", "currency": {"code": "RUB"}}}]
     with pytest.raises(TypeError, match="Неправильный тип входных данных. Ожидается dict."):
         assert convert_transaction_amount_to_rubles(transaction_no_dict) == TypeError
