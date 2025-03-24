@@ -5,19 +5,17 @@ from pathlib import Path
 
 from src.masks import BASE_DIR
 
-
+logger_utils = logging.getLogger("utils")
+logger_utils.setLevel(logging.INFO)
+file_handler = logging.FileHandler(os.path.join(BASE_DIR, "logs", "utils.log"), "w", encoding="utf-8")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+file_handler.setFormatter(file_formatter)
+logger_utils.addHandler(file_handler)
 
 
 def get_operations(path_to_file: str) -> list:
     """Функция, которая принимает на вход путь до JSON-файла
     и возвращает список словарей с данными о финансовых транзакциях."""
-
-    logger_utils = logging.getLogger("utils")
-    logger_utils.setLevel(logging.INFO)
-    file_handler = logging.FileHandler(os.path.join(BASE_DIR, "logs", "utils.log"), "w", encoding="utf-8")
-    file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
-    file_handler.setFormatter(file_formatter)
-    logger_utils.addHandler(file_handler)
 
     try:
         logger_utils.info("Получен путь до JSON-файла.")
