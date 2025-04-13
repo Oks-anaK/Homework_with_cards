@@ -51,6 +51,6 @@ def reading_from_excel(path_to_excel: str) -> list:
         raise Exception("Невозможно прочитать файл excel.")
 
 
-# if __name__ == "__main__":
-# pprint(reading_from_csv("C:\\Users\\Oks-py\\PycharmProjects\\PythonProject6\\tables\\transactions.csv"))
-# pprint(reading_from_excel("C:\\Users\\Oks-py\\PycharmProjects\\PythonProject6\\tables\\transactions_excel.xlsx"))
+if __name__ == "__main__":
+    pprint(reading_from_csv("C:\\Users\\Oks-py\\PycharmProjects\\PythonProject6\\tables\\transactions.csv"))
+    # pprint(reading_from_excel("C:\\Users\\Oks-py\\PycharmProjects\\PythonProject6\\tables\\transactions_excel.xlsx"))
