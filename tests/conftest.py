@@ -24,7 +24,8 @@ def same_data_trans() -> list[dict]:
 
 
 # Фикстура, которая используется в качестве входных данных для функций:
-#
+# test_filter_by_currency, test_filter_by_currency_negative_type_key,
+# test_transaction_descriptions
 @pytest.fixture
 def new_trans_list() -> list[dict]:
     return [

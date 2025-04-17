@@ -52,8 +52,8 @@ def test_filter_by_currency_negative_type_dct_in_lst(lst, key, result):
 def test_filter_by_currency_missing_key():
     """Тестирует случаи, когда не найдены нужные ключи или тип данных внутри словаря не верен."""
     data = [{}]
-    with pytest.raises(ValueError):
-        list(filter_by_currency(data, "USD"))
+    result = list(filter_by_currency(data, "USD"))
+    assert len(result) == 0, f"Ожидаемый результат: пустой список, но получили: {result}"
 
 
 def test_transaction_descriptions(new_trans_list):

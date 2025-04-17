@@ -1,7 +1,7 @@
 import logging
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath("masks.log")))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 logger_masks = logging.getLogger("masks")
 logger_masks.setLevel(logging.INFO)
@@ -14,11 +14,14 @@ logger_masks.addHandler(file_handler)
 def get_mask_card_number(user_number_card: str) -> str:
     """Функция маскирует номер банковской карты в виде: XXXX XX** **** XXXX"""
     logger_masks.info("Введен номер карты.")
-    number_card = user_number_card.replace(" ", "")
 
-    if not isinstance(number_card, str):
+    # Сначала проверяем тип данных
+    if not isinstance(user_number_card, str):
         logger_masks.error("TypeError: Введен неверный тип данных.")
         raise TypeError("Неверный тип данных.")
+
+    # Теперь безопасно можем использовать методы строк
+    number_card = user_number_card.replace(" ", "")
 
     if not number_card.isdigit():
         logger_masks.error("ValueError: Номер карты содержит недопустимые символы.")
@@ -34,7 +37,6 @@ def get_mask_card_number(user_number_card: str) -> str:
         )
 
     logger_masks.info("Номер карты замаскирован.")
-
     return f"{number_card[-19:-12]} {number_card[-12:-10]}** **** {number_card[-4:]}"
 
 
